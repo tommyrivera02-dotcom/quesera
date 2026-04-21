@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oh! Queserá Queserá</title>
+
+<style>
+:root {
+    --fondo: #0f0f0f;
+    --fondo-sec: #1c1c1c;
+    --dorado: #d4b06a;
+    --blanco: #ffffff;
+    --whatsapp: #25D366;
+    --azul-grupo: #0084ff;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 150px; /* Un poco más de espacio para los dos botones */
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+    background: var(--fondo-sec);
+    border-bottom: 2px solid var(--dorado);
+}
+
+h1 { color: var(--dorado); margin: 0; }
+
+section {
+    max-width: 850px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    color: var(--dorado);
+    margin-top: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0;
+    padding: 12px;
+    background: var(--fondo-sec);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.3);
+}
+
+.cantidad-input {
+    display: none; 
+    width: 50px;
+    background: #000;
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    border-radius: 4px;
+    padding: 6px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.barra-total {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1c1c1c;
+    border-top: 2px solid var(--dorado);
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.total-contenedor {
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para acomodar el nuevo botón */
+    align-items: center;
+    gap: 10px;
+}
+
+.fila-botones {
+    display: flex;
+    gap: 10px;
+    width: 90%;
+    justify-content: center;
+}
+
+#precio-total {
+    font-size: 26px;
+    color: var(--dorado);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.btn-pedido, .btn-grupo {
+    flex: 1;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-pedido {
+    background: var(--whatsapp);
+    color: white;
+}
+
+.btn-grupo {
+    background: var(--azul-grupo);
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Oh! Queserá Queserá</h1>
+    <p>Selecciona tu pedido y cantidad</p>
+</header>
+
+<section id="contenedor-productos">
+    <h2>Yogurt litro (sabores)</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro mora" data-precio="15000"> Mora - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro fresa" data-precio="15000"> Fresa - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro frutos rojos" data-precio="15000"> Frutos rojos - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro frutos amarillos" data-precio="15000"> Frutos amarillos - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro maracupiña" data-precio="15000"> Maracupiña - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro maracumango" data-precio="15000"> Maracumango - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro piña durazno" data-precio="15000"> Piña durazno - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro arequipe" data-precio="15000"> Arequipe - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro ron con pasas" data-precio="15000"> Ron con pasas - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro guanábana" data-precio="15000"> Guanábana - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt litro mango" data-precio="15000"> Mango - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+
+    <h2>Yogurt personal (sabores)</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal mora" data-precio="4500"> Mora - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal fresa" data-precio="4500"> Fresa - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal frutos rojos" data-precio="4500"> Frutos rojos - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal frutos amarillos" data-precio="4500"> Frutos amarillos - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal maracupiña" data-precio="4500"> Maracupiña - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal maracumango" data-precio="4500"> Maracumango - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal piña durazno" data-precio="4500"> Piña durazno - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal arequipe" data-precio="4500"> Arequipe - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal ron con pasas" data-precio="4500"> Ron con pasas - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal guanábana" data-precio="4500"> Guanábana - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt personal mango" data-precio="4500"> Mango - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+
+    <h2>Lácteos, Arepas y Postres</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Kumis" data-precio="15000"> Kumis - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Yogurt griego lb" data-precio="18000"> Yogurt griego lb. - $18.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Arepas de cuajada" data-precio="11000"> Arepas de cuajada x5 - $11.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Postres" data-precio="7000"> Postres - $7.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+
+    <h2>Arequipes</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Tradicional" data-precio="6000"> Tradicional - $6.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Tradicional 320gr" data-precio="12000"> Tradicional 320gr - $12.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Tradicional breva 160gr" data-precio="6500"> Tradicional breva 160gr - $6.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+
+    <h2>Quesos</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Doble crema 420gr" data-precio="13500"> Doble crema 420gr. - $13.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Doble crema 750gr" data-precio="24000"> Doble crema 750gr. - $24.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Doble crema 220gr" data-precio="9000"> Doble crema 220gr. - $9.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Malla x 5" data-precio="8500"> Malla x 5 - $8.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso + bocadillo" data-precio="3500"> Queso + Bocadillo - $3.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Quesadillo tradicional" data-precio="4000"> Quesadillo tradicional - $4.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Siete cueros" data-precio="8000"> Siete cueros - $8.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Quesadillo momposino" data-precio="6000"> Quesadillo momposino - $6.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso pera 420gr" data-precio="16500"> Queso pera 420gr. - $16.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso pera 220gr" data-precio="8500"> Queso pera 220gr. - $8.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Pera + bocadillo 220gr" data-precio="9500"> Pera + Bocadillo 220gr. - $9.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Peralillo 85gr" data-precio="4500"> Peralillo 85gr. - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso paipa 420g" data-precio="17000"> Queso paipa 420g. - $17.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso Campesino 500gr" data-precio="14500"> Queso Campesino 500gr. - $14.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Cuajada lb" data-precio="10500"> Cuajada lb. - $10.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Bandeja bolitas de queso x 6" data-precio="9500"> Bandeja bolitas de queso x 6 - $9.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso Colby Jack 500gr" data-precio="24500"> Queso Colby Jack 500gr. - $24.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso Tilsiter 500gr" data-precio="24500"> Queso Tilsiter 500gr. - $24.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso hilado 420gr" data-precio="14500"> Queso hilado 420gr. - $14.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso + arándanos" data-precio="17000"> Queso + Arándanos - $17.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso holandés 420gr" data-precio="27000"> Queso Holandés 420gr. - $27.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso holandés 250gr" data-precio="21500"> Queso Holandés 250gr. - $21.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso pepper jack 400gr" data-precio="30000"> Queso pepper jack 400gr - $30.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso parmesano 220gr" data-precio="14000"> Queso parmesano 220gr. - $14.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso cottage lb" data-precio="25000"> Queso cottage lb. - $25.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso tajado cheddar 300gr" data-precio="14000"> Queso tajado cheddar 300gr - $14.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Queso tajado doble crema 350gr" data-precio="14000"> Queso tajado doble crema 350gr - $14.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Quesillo de hoja lb" data-precio="15000"> Quesillo de hoja lb - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Quesillo de hoja 250gr" data-precio="8000"> Quesillo de hoja 250gr - $8.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label> 
+
+    <h2>Tortas</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vainilla p." data-precio="12000"> Torta vainilla p. - $12.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vainilla m." data-precio="14000"> Torta vainilla m. - $14.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vainilla g." data-precio="18000"> Torta vainilla g. - $18.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vino p." data-precio="14000"> Torta vino p. - $14.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vino m." data-precio="16000"> Torta vino m. - $16.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vino g." data-precio="20000"> Torta vino g. - $20.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta Brownie p." data-precio="14000"> Torta Brownie p. - $14.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta Brownie m." data-precio="16000"> Torta Brownie m. - $16.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta Brownie g." data-precio="20000"> Torta Brownie g. - $20.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta vino rectangular" data-precio="22000"> Torta vino rectangular - $22.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta navideña" data-precio="25000"> Torta navideña - $25.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Mantecada rectangular" data-precio="24000"> Mantecada rectangular - $24.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta brownie medio lata sin dec." data-precio="45000"> Torta brownie  1/2 lata (Sin dec.) - $45.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta brownie medio lata decorada" data-precio="50000"> Torta brownie  1/2 lata (Decorada) - $50.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Torta brownie 3 leches redonda" data-precio="40000"> Torta 3 leches redonda - $40.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+
+    <h2>Cárnicos</h2>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Longaniza lb" data-precio="15000"> Longaniza lb. - $15.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Chorizos u" data-precio="4000"> Chorizos u. - $4.000</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+    <label><div class="item-info"><input type="checkbox" class="producto" data-nombre="Chorizos mixtos" data-precio="4500"> Chorizos mixtos - $4.500</div> <input type="number" class="cantidad-input" value="1" min="1"></label>
+</section>
+
+<div class="barra-total">
+    <div class="total-contenedor">
+        <div id="precio-total">Total: $0</div>
+        <div class="fila-botones">
+            <button class="btn-pedido" onclick="generarPedido()">🛒 Pedir WhatsApp</button>
+            <a href="https://chat.whatsapp.com/BkTI6dPgJLAEuzfviUyILj?mode=gi_t" target="_blank" class="btn-grupo">👥 Unirse al Grupo</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function recalcularPedido() {
+    let totalAcumulado = 0;
+    const todosLosProductos = document.querySelectorAll('.producto');
+
+    todosLosProductos.forEach(checkbox => {
+        const contenedorPadre = checkbox.closest('label');
+        const inputCantidad = contenedorPadre.querySelector('.cantidad-input');
+
+        if (checkbox.checked) {
+            inputCantidad.style.display = 'block';
+            const precio = parseInt(checkbox.getAttribute('data-precio'));
+            const cantidad = parseInt(inputCantidad.value) || 1;
+            totalAcumulado += (precio * cantidad);
+        } else {
+            inputCantidad.style.display = 'none';
+            inputCantidad.value = 1;
+        }
+    });
+
+    document.getElementById('precio-total').innerText = 'Total: $' + totalAcumulado.toLocaleString('es-CO');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.producto');
+    const inputsCantidad = document.querySelectorAll('.cantidad-input');
+
+    checkboxes.forEach(cb => cb.addEventListener('change', recalcularPedido));
+    inputsCantidad.forEach(input => input.addEventListener('input', recalcularPedido));
+});
+
+function generarPedido() {
+    const seleccionados = document.querySelectorAll('.producto:checked');
+
+    if (seleccionados.length === 0) {
+        alert("Por favor, selecciona al menos un producto.");
+        return;
+    }
+
+    let mensaje = "Hola! Quisiera realizar el siguiente pedido en Oh! Queserá:%0A%0A";
+    let totalFinal = 0;
+
+    seleccionados.forEach(cb => {
+        const inputCant = cb.closest('label').querySelector('.cantidad-input');
+        const cantidad = inputCant.value;
+        const subtotal = parseInt(cb.getAttribute('data-precio')) * parseInt(cantidad);
+        mensaje += `- ${cantidad}x ${cb.getAttribute('data-nombre')} ($${subtotal.toLocaleString('es-CO')})%0A`;
+        totalFinal += subtotal;
+    });
+
+    mensaje += "%0A*Total del pedido: $" + totalFinal.toLocaleString('es-CO') + "*";
+    window.location.href = "https://wa.me/573134004098?text=" + mensaje;
+}
+</script>
+
+</body>
+</html>
